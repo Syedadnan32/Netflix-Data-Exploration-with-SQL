@@ -132,7 +132,7 @@ GROUP BY
 ORDER BY
 	TYPE_COUNT DESC
 LIMIT
-	10
+	10;
 
 --7--counting titles based on rating and type in descending order of frequency? 
 
@@ -154,7 +154,7 @@ GROUP BY
 ORDER BY
 	RATING_COUNT DESC,
 	RATING,
-	TYPE
+	TYPE;
 
 --8--Find Content Added in the Last 5 Years?
 
@@ -208,7 +208,7 @@ FROM
 	TV_SHOW_SEASONS;
 
 
-select * from netflix
+select * from netflix;
 
 --11-- Movies & TVShows RELEASED MONTH IN NETFLIX ?
 
@@ -235,7 +235,7 @@ FROM
 GROUP BY
 	LISTED_IN
 ORDER BY
-	LISTED_IN_COUNT DESC
+	LISTED_IN_COUNT DESC;
 
 --13-- count of movies listed_in Netflix  with year of listed_in ?
 
@@ -249,7 +249,7 @@ GROUP BY
 	RELEASE_YEAR,
 	LISTED_IN
 ORDER BY
-	LISTED_IN_COUNT DESC
+	LISTED_IN_COUNT DESC;
 
 --14-- directors with their movies, tv shows with their released year ?
 
@@ -269,4 +269,4 @@ GROUP BY
 HAVING
 	COUNT(SHOW_ID) >= 8
 ORDER BY
-	TOTAL_COUNT DESC
+	TOTAL_COUNT DESC;
