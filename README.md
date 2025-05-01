@@ -20,7 +20,6 @@ tested using Postgresql
 
 
 DROP TABLE IF EXISTS NETFLIX;
-
 CREATE TABLE NETFLIX (
 	SHOW_ID VARCHAR(5),
 	TYPE VARCHAR(10),
@@ -38,7 +37,8 @@ CREATE TABLE NETFLIX (
 
 SELECT	* FROM NETFLIX
 
---1-- Count the Number of Movies vs TV Shows
+--1-- Count the Number of Movies vs TV Shows ?
+
 SELECT
 	TYPE,
 	COUNT(*)
@@ -47,7 +47,8 @@ FROM
 GROUP BY
 	1;
 
---2-- count of movies released in each year 
+--2-- count of movies released in each year ?
+
 SELECT
 	RELEASE_YEAR,
 	COUNT(*) AS MOVIE_COUNT
@@ -61,6 +62,7 @@ ORDER BY
 	RELEASE_YEAR DESC;
 
 --3-- average movie durations 
+
 SELECT
 	AVG(CAST(REPLACE(DURATION, ' min', '') AS INTEGER)) AS AVERAGE_MOVIE_DURATION
 FROM
@@ -68,7 +70,8 @@ FROM
 WHERE
 	TYPE = 'Movie';
 
---4-- Find the Most Common Rating for Movies and TV Shows
+--4-- Find the Most Common Rating for Movies and TV Shows?
+
 SELECT
 	*
 FROM
@@ -107,7 +110,7 @@ FROM
 WHERE
 	RANK = 1;
 
---3-- List All Movies Released in a Specific Year (e.g., 2020)	  
+--5-- List All Movies Released in a Specific Year (e.g., 2020)?	  
 SELECT
 	*
 FROM
@@ -115,7 +118,7 @@ FROM
 WHERE
 	RELEASE_YEAR = 2020;
 
---4-- count of movies in each country 
+--6-- count of movies in each country 
 SELECT
 	COUNTRY,
 	COUNT(*) AS TYPE_COUNT
@@ -130,7 +133,8 @@ ORDER BY
 LIMIT
 	10
 
---5--counting titles based on rating and type in descending order of frequency. 
+--7--counting titles based on rating and type in descending order of frequency? 
+
 SELECT
 	*
 FROM
@@ -151,7 +155,8 @@ ORDER BY
 	RATING,
 	TYPE
 
---6--Find Content Added in the Last 5 Years
+--8--Find Content Added in the Last 5 Years?
+
 SELECT
 	*
 FROM
@@ -163,7 +168,7 @@ FROM
 WHERE
 	TO_DATE(DATE_ADDED, 'month dd,yyyy') >= CURRENT_DATE - INTERVAL '5years';
 
---7--Find All Movies/TV Shows by Director 'Rajiv Chilaka'
+--9--Find All Movies/TV Shows by Director 'Rajiv Chilaka'?
 SELECT
 	*
 FROM
@@ -180,7 +185,7 @@ FROM
 WHERE
 	DIRECTOR = 'Rajiv Chilaka';
 
---8-- List All TV Shows with More Than 5 Seasons
+--10-- List All TV Shows with More Than 5 Seasons ?
 SELECT
 	*
 FROM
@@ -204,7 +209,8 @@ FROM
 
 select * from netflix
 
---9-- RELEASED MONTH IN NETFLIX
+--11-- Movies & TVShows RELEASED MONTH IN NETFLIX ?
+
 SELECT 
     TO_CHAR(TO_DATE(date_added, 'Month DD, YYYY'), 'Month') AS month_name,
     COUNT(*) AS total_count
@@ -218,7 +224,8 @@ ORDER BY
     total_count DESC;
 
 
---10-- count of movies listed_in Netflix 
+--12-- count of different movies  listed_in Netflix ?
+
 SELECT
 	LISTED_IN,
 	COUNT(SHOW_ID) AS LISTED_IN_COUNT
@@ -229,7 +236,8 @@ GROUP BY
 ORDER BY
 	LISTED_IN_COUNT DESC
 
---11-- count of movies listed_in Netflix  with year of listed_in 
+--13-- count of movies listed_in Netflix  with year of listed_in ?
+
 SELECT
 	LISTED_IN,
 	RELEASE_YEAR,
@@ -242,7 +250,8 @@ GROUP BY
 ORDER BY
 	LISTED_IN_COUNT DESC
 
---12-- directors with their movies, tv shows with their released year 	
+--14-- directors with their movies, tv shows with their released year ?
+
 SELECT
 	DIRECTOR,
 	TYPE,
