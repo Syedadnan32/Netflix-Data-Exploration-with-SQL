@@ -1,5 +1,6 @@
 # Netflix-Data-Exploration-with-SQL
 Data Analysis Project for Netflix 📺
+
 This project displays a number of SQL queries run on a Netflix dataset in order to do data analysis and extract insights. By using practical data exploration tasks including filtering, aggregation, and trend analysis, the objective is to show off SQL expertise.
 
 Key Features: Content Analysis by Type, Genre, and Year of Release on Netflix
